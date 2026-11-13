@@ -8,9 +8,10 @@ End-to-end test automation for the business flows of an e-commerce site ([SauceD
 
 ## Demo
 
-https://github.com/fery99/-ecommerce-e2e-automation/raw/main/docs/assets/Evidence.mp4
 
-*Automation test run evidence. [Download / open video](docs/assets/Evidence.mp4)*
+https://github.com/user-attachments/assets/da9a734f-2c65-4179-928d-cdf90142e44d
+
+
 
 ## Highlights
 - **Page Object Model** + custom fixtures (`loggedIn`) for clean, reusable tests
