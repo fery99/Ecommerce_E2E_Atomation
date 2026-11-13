@@ -1,0 +1,23 @@
+{
+  "name": "saucedemo-playwright-e2e",
+  "version": "1.0.0",
+  "description": "E2E UI automation portfolio - SauceDemo with Playwright + TypeScript (POM)",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:regression": "playwright test --grep @regression",
+    "report": "playwright show-report",
+    "allure:generate": "allure generate allure-results --clean -o allure-report",
+    "allure:open": "allure open allure-report"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.65.0",
+    "@types/node": "^26.6.6",
+    "allure-commandline": "^2.46.1",
+    "allure-playwright": "^3.14.0",
+    "csv-parse": "^7.0.3",
+    "typescript": "^7.0.2"
+  }
+}

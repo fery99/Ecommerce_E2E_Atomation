@@ -1,0 +1,14 @@
+{
+  "valid": {
+    "standard": { "username": "standard_user", "password": "secret_sauce" },
+    "problem": { "username": "problem_user", "password": "secret_sauce" },
+    "performance": { "username": "performance_glitch_user", "password": "secret_sauce" }
+  },
+  "invalid": [
+    { "id": "TC-LOGIN-03", "case": "locked out user", "username": "locked_out_user", "password": "secret_sauce", "error": "Sorry, this user has been locked out." },
+    { "id": "TC-LOGIN-04", "case": "wrong password", "username": "standard_user", "password": "wrong_pass", "error": "Username and password do not match any user in this service" },
+    { "id": "TC-LOGIN-05", "case": "unregistered user", "username": "unknown_user", "password": "secret_sauce", "error": "Username and password do not match any user in this service" },
+    { "id": "TC-LOGIN-06", "case": "empty username", "username": "", "password": "secret_sauce", "error": "Username is required" },
+    { "id": "TC-LOGIN-07", "case": "empty password", "username": "standard_user", "password": "", "error": "Password is required" }
+  ]
+}

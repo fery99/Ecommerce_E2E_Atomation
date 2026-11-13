@@ -1,0 +1,4 @@
+id,firstName,lastName,postalCode,expectedError
+TC-CHK-03,,Doe,12345,First Name is required
+TC-CHK-04,John,,12345,Last Name is required
+TC-CHK-05,John,Doe,,Postal Code is required
