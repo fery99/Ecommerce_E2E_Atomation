@@ -59,4 +59,4 @@ Environment: Chromium (Desktop Chrome), https://www.saucedemo.com, password `sec
 **Expected:** Redirect to "Thank you for your order!".
 **Actual:** User stays on the overview page; the order is not completed.
 
-*Evidence (screenshots, video, trace) for each run is available in the [Allure Report](https://fery99.github.io/-ecommerce-e2e-automation/) and in the CI artifacts.*
+*Evidence (screenshots, video, trace) for each run is available in the [Allure Report](https://fery99.github.io/Ecommerce_E2E_Atomation/) and in the CI artifacts.*
