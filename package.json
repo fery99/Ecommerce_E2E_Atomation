@@ -9,7 +9,8 @@
     "test:regression": "playwright test --grep @regression",
     "report": "playwright show-report",
     "allure:generate": "allure generate allure-results --clean -o allure-report",
-    "allure:open": "allure open allure-report"
+    "allure:open": "allure open allure-report",
+    "demo:record": "playwright test --config=playwright.demo.config.ts --grep \"TC-CHK-01\""
   },
   "license": "MIT",
   "devDependencies": {

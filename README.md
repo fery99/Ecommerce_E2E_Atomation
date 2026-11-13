@@ -1,47 +1,56 @@
-# 🛒 SauceDemo E2E Automation: Playwright + TypeScript
+# E-commerce E2E Automation: Playwright + TypeScript
 
 ![Playwright](https://img.shields.io/badge/Playwright-2EAD33?logo=playwright&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
 ![CI](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)
 
-Portofolio QA automation untuk alur bisnis e-commerce di [SauceDemo](https://www.saucedemo.com): login, sorting produk, cart, dan checkout end-to-end.
+End-to-end test automation for the business flows of an e-commerce site ([SauceDemo](https://www.saucedemo.com)): login, product sorting, cart, and checkout.
 
-## ✨ Highlights
-- **Page Object Model** + custom fixtures (`loggedIn`) agar test bersih dan reusable
-- **Data-driven testing** dari **JSON** (login negatif) dan **CSV** (validasi checkout)
-- **22 test case**, ditandai `@smoke` / `@regression`
-- Screenshot, video, dan trace otomatis saat test gagal
-- Report **Playwright HTML** + **Allure**
-- **CI/CD** GitHub Actions dengan Allure report yang di-publish ke GitHub Pages
-- Dokumen QA: [Test Plan](docs/TEST_PLAN.md) · [Test Cases](docs/TEST_CASES.md) · [Bug Report](docs/BUG_REPORT.md)
+## Demo
 
-## 📁 Struktur
+<!-- DEMO_VIDEO: ganti baris ini dengan link video dari GitHub (lihat cara di bawah) -->
+
+*Checkout end-to-end test (TC-CHK-01) running in Chromium.*
+
+## Highlights
+- **Page Object Model** + custom fixtures (`loggedIn`) for clean, reusable tests
+- **Data-driven testing** from **JSON** (negative login) and **CSV** (checkout validation)
+- **22 test cases**, tagged `@smoke` / `@regression`
+- Automatic screenshot, video, and trace on failure
+- **Playwright HTML** + **Allure** reports
+- **CI/CD** with GitHub Actions, Allure report published to GitHub Pages
+- QA documents: [Test Plan](docs/TEST_PLAN.md) | [Test Cases](docs/TEST_CASES.md) | [Bug Report](docs/BUG_REPORT.md)
+
+## Project Structure
 ```
-├── pages/               # Page Objects (Login, Inventory, Cart, Checkout)
-├── tests/               # Spec files per fitur
-├── test-data/           # users.json, products.json, checkout.csv
-├── utils/               # fixtures & data loader
-├── docs/                # Test plan, test cases, bug report
-├── .github/workflows/   # CI pipeline
-└── playwright.config.ts
+├── pages/                     # Page Objects (Login, Inventory, Cart, Checkout)
+├── tests/                     # Spec files per feature
+├── test-data/                 # users.json, products.json, checkout.csv
+├── utils/                     # fixtures & data loader
+├── docs/                      # Test plan, test cases, bug report
+├── .github/workflows/         # CI pipeline
+├── playwright.config.ts
+└── playwright.demo.config.ts  # slow-motion + video recording for demo
 ```
 
-## 🚀 Cara Menjalankan
+## How to Run
 ```bash
 npm install
 npx playwright install chromium
 
-npm test                  # semua test
-npm run test:smoke        # hanya @smoke
-npm run test:regression   # hanya @regression
-npm run test:headed       # dengan browser terlihat
-npm run report            # buka HTML report
+npm test                  # all tests
+npm run test:smoke        # @smoke only
+npm run test:regression   # @regression only
+npm run test:headed       # with visible browser
+npx playwright test --ui  # interactive UI mode
+npm run report            # open HTML report
+npm run demo:record       # record demo video (slow motion)
 
-npm run allure:generate && npm run allure:open   # Allure (butuh Java)
+npm run allure:generate && npm run allure:open   # Allure (requires Java)
 ```
 
-## 📊 Coverage
-| Modul | Jumlah TC |
+## Coverage
+| Module | Test Cases |
 |---|---|
 | Login | 8 |
 | Sorting | 4 |
@@ -49,5 +58,5 @@ npm run allure:generate && npm run allure:open   # Allure (butuh Java)
 | Checkout | 5 |
 | **Total** | **22 (100% automated)** |
 
-## 🧰 Tech Stack
-Playwright · TypeScript · Allure · csv-parse · GitHub Actions
+## Tech Stack
+Playwright | TypeScript | Allure | csv-parse | GitHub Actions
