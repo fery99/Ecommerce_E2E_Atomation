@@ -8,9 +8,9 @@ End-to-end test automation for the business flows of an e-commerce site ([SauceD
 
 ## Demo
 
-<!-- DEMO_VIDEO: ganti baris ini dengan link video dari GitHub (lihat cara di bawah) -->
+https://github.com/fery99/-ecommerce-e2e-automation/raw/main/docs/assets/Evidence.mp4
 
-*Checkout end-to-end test (TC-CHK-01) running in Chromium.*
+*Automation test run evidence. [Download / open video](docs/assets/Evidence.mp4)*
 
 ## Highlights
 - **Page Object Model** + custom fixtures (`loggedIn`) for clean, reusable tests
