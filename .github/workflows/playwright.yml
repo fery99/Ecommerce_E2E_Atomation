@@ -5,6 +5,8 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+  schedule:
+    - cron: '0 1 * * *' # setiap hari 08:00 WIB (01:00 UTC)
 
 permissions:
   contents: read

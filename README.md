@@ -2,7 +2,9 @@
 
 ![Playwright](https://img.shields.io/badge/Playwright-2EAD33?logo=playwright&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
-![CI](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)
+[![E2E Tests](https://github.com/fery99/-ecommerce-e2e-automation/actions/workflows/playwright.yml/badge.svg)](https://github.com/fery99/-ecommerce-e2e-automation/actions/workflows/playwright.yml)
+
+**Live test report:** [Allure Report](https://fery99.github.io/-ecommerce-e2e-automation/) (updated automatically on every push and daily at 08:00 WIB)
 
 End-to-end test automation for the business flows of an e-commerce site ([SauceDemo](https://www.saucedemo.com)): login, product sorting, cart, and checkout.
 
