@@ -18,7 +18,10 @@ https://github.com/user-attachments/assets/da9a734f-2c65-4179-928d-cdf90142e44d
 ## Highlights
 - **Page Object Model** + custom fixtures (`loggedIn`) for clean, reusable tests
 - **Data-driven testing** from **JSON** (negative login) and **CSV** (checkout validation)
-- **22 test cases**, tagged `@smoke` / `@regression`
+- **121 automated test cases**, tagged `@smoke` / `@regression` / `@known-bug`
+- **13 real bugs found and documented**, each guarded by a `@known-bug` test
+- Covers all SauceDemo user types (standard, problem, error, visual, performance_glitch, locked_out)
+- Basic security checks (SQL injection, XSS input, direct URL access without login)
 - Automatic screenshot, video, and trace on failure
 - **Playwright HTML** + **Allure** reports
 - **CI/CD** with GitHub Actions, Allure report published to GitHub Pages
@@ -44,6 +47,7 @@ npx playwright install chromium
 npm test                  # all tests
 npm run test:smoke        # @smoke only
 npm run test:regression   # @regression only
+npx playwright test --grep @known-bug   # bug reproduction tests only
 npm run test:headed       # with visible browser
 npx playwright test --ui  # interactive UI mode
 npm run report            # open HTML report
@@ -55,11 +59,18 @@ npm run allure:generate && npm run allure:open   # Allure (requires Java)
 ## Coverage
 | Module | Test Cases |
 |---|---|
-| Login | 8 |
-| Sorting | 4 |
-| Cart | 5 |
-| Checkout | 5 |
-| **Total** | **22 (100% automated)** |
+| Login & Security | 22 |
+| User Types | 7 |
+| Inventory | 12 |
+| Sorting | 10 |
+| Product Detail | 13 |
+| Cart | 14 |
+| Checkout | 24 |
+| Menu & Navigation | 10 |
+| Known Bugs (special users) | 9 |
+| **Total** | **121 (100% automated)** |
+
+Full list: [docs/TEST_CASES.md](docs/TEST_CASES.md) | Bugs found: [docs/BUG_REPORT.md](docs/BUG_REPORT.md)
 
 ## Tech Stack
 Playwright | TypeScript | Allure | csv-parse | GitHub Actions

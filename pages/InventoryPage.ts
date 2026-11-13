@@ -7,22 +7,30 @@ export const slug = (name: string) => name.toLowerCase().replace(/\s+/g, '-');
 export class InventoryPage {
   readonly title: Locator;
   readonly sortDropdown: Locator;
+  readonly activeSort: Locator;
+  readonly items: Locator;
   readonly itemNames: Locator;
+  readonly itemDescs: Locator;
   readonly itemPrices: Locator;
+  readonly itemImages: Locator;
   readonly cartBadge: Locator;
   readonly cartLink: Locator;
-  readonly menuButton: Locator;
-  readonly logoutLink: Locator;
 
   constructor(private readonly page: Page) {
     this.title = page.getByTestId('title');
     this.sortDropdown = page.getByTestId('product-sort-container');
+    this.activeSort = page.getByTestId('active-option');
+    this.items = page.getByTestId('inventory-item');
     this.itemNames = page.getByTestId('inventory-item-name');
+    this.itemDescs = page.getByTestId('inventory-item-desc');
     this.itemPrices = page.getByTestId('inventory-item-price');
+    this.itemImages = page.locator('img.inventory_item_img');
     this.cartBadge = page.getByTestId('shopping-cart-badge');
     this.cartLink = page.getByTestId('shopping-cart-link');
-    this.menuButton = page.getByRole('button', { name: 'Open Menu' });
-    this.logoutLink = page.getByTestId('logout-sidebar-link');
+  }
+
+  async goto() {
+    await this.page.goto('/inventory.html');
   }
 
   async expectLoaded() {
@@ -43,12 +51,28 @@ export class InventoryPage {
     return raw.map((p) => parseFloat(p.replace('$', '')));
   }
 
+  addButton(name: string) {
+    return this.page.getByTestId(`add-to-cart-${slug(name)}`);
+  }
+
+  removeButton(name: string) {
+    return this.page.getByTestId(`remove-${slug(name)}`);
+  }
+
   async addToCart(name: string) {
-    await this.page.getByTestId(`add-to-cart-${slug(name)}`).click();
+    await this.addButton(name).click();
   }
 
   async removeFromCart(name: string) {
-    await this.page.getByTestId(`remove-${slug(name)}`).click();
+    await this.removeButton(name).click();
+  }
+
+  async openProductByName(name: string) {
+    await this.itemNames.filter({ hasText: name }).click();
+  }
+
+  async openProductByImage(name: string) {
+    await this.page.getByTestId(`inventory-item-${slug(name)}-img`).click();
   }
 
   async expectCartCount(count: number) {
@@ -60,8 +84,9 @@ export class InventoryPage {
     await this.cartLink.click();
   }
 
+  /** Kompatibel dengan test lama */
   async logout() {
-    await this.menuButton.click();
-    await this.logoutLink.click();
+    await this.page.getByRole('button', { name: 'Open Menu' }).click();
+    await this.page.getByTestId('logout-sidebar-link').click();
   }
 }
